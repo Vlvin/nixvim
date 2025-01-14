@@ -33,7 +33,7 @@
     chadtree.enable = true;
     treesitter = {
       enable = true;
-      grammarPackages = with with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
         nix
         markdown
         yaml
@@ -42,9 +42,8 @@
     codecompanion = {
       enable = true;
       settings = {
-
     
-    };
+      };
     };
     coq-nvim.enable = true;
   };
