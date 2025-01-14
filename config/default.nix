@@ -31,7 +31,22 @@
   plugins = {
     lightline.enable = true;
     chadtree.enable = true;
-    codecompanion.enable = true;
+    treesitter = {
+      enable = true;
+      grammarPackages = with with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        nix
+        markdown
+        yaml
+      ];
+    };
+    codecompanion = {
+      enable = true;
+      settings = {
+
+    
+    };
+    };
     coq-nvim.enable = true;
   };
+
 }
