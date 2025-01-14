@@ -40,6 +40,7 @@
 
           packages = {
             # Lets you run `nix run .` to start nixvim
+	    nvim = nvim; 
             default = nvim;
           };
         };
