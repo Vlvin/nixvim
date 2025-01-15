@@ -1,4 +1,4 @@
-{self, ...}: {
+{self,  ...}: {
   # Import all your configuration modules here
   imports = [ ./bufferline.nix ];
   
@@ -31,14 +31,7 @@
   plugins = {
     lightline.enable = true;
     chadtree.enable = true;
-    treesitter = {
-      enable = true;
-      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        nix
-        markdown
-        yaml
-      ];
-    };
+
     codecompanion = {
       enable = true;
       settings = {
@@ -46,19 +39,10 @@
           ollama = {
             __raw = ''
               function()
-                return require('codecompanion.adapters').extend('ollama', {
+                return require('codecompanion.adapters').extend('anthropic', {
                     env = {
-                        url = "http://127.0.0.1:11434",
-                    },
-                    schema = {
-                        model = {
-                            default = 'qwen2.5-coder:latest',
-                            -- default = "llama3.1:8b-instruct-q8_0",
-                        },
-                        num_ctx = {
-                            default = 32768,
-                        },
-                    },
+                        api_key = "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",
+                   } 
                 })
               end
             '';
@@ -72,13 +56,13 @@
         };
         strategies = {
           agent = {
-            adapter = "ollama";
+            adapter = "anthropic";
           };
           chat = {
-            adapter = "ollama";
+            adapter = "anthropic";
           };
           inline = {
-            adapter = "ollama";
+            adapter = "anthropic";
           };
         };
       };
