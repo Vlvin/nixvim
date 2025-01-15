@@ -1,6 +1,6 @@
 # plugin configuration
 let 
-  secrets = import ./secrets.nix;
+  secrets = !import /etc/secrets/nixvim.nix;
 in {
   plugins = {
     bufferline.enable = true;
